@@ -202,7 +202,7 @@ def coh_avg_vis(obs,dt=0,scan_avg=False,return_type='rec',err_type='predicted',n
 
         #ACTUAL AVERAGING
         vis_avg = vis.groupby(grouping).agg(aggregated).reset_index()
-        if (scan_avg==True)&(match_by_scans==True):
+        if (scan_avg==True)&(scan_timestamps==True):
             vis_avg['time']=(vis_avg['mjd']-obs.mjd)*24.
             vis_avg['datetime']= Time(vis_avg['mjd'], format='mjd').datetime
         
